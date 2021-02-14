@@ -9,18 +9,24 @@
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="contract" class="com.luxoft.springioc.lab2.model.Contract">
-        <property name="mail" value="asd@asd.ru"/>
-        <property name="phone" value="+7-234-456-67-89"/>
+    <bean id="mail" class="java.lang.String">
+        <constructor-arg value="asd@asd.ru"/>
+    </bean>
+
+    <bean id="phone" class="java.lang.String">
+        <constructor-arg value="+7-234-456-67-89"/>
     </bean>
 
     <bean id="person" class="com.luxoft.springioc.lab2.model.UsualPerson">
         <property name="name" value="Ivan Ivanov"/>
         <property name="age" value="35"/>
+        <property name="height" value="1.78"/>
+        <property name="isProgrammer" value="true"/>
         <property name="country" ref="country"/>
         <property name="contacts" >
             <list>
-                <ref bean="contract" />
+                <ref bean="mail"/>
+                <ref bean="phone"/>
             </list>
         </property>
     </bean>
